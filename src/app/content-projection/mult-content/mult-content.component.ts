@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mult-content.component.css']
 })
 export class MultContentComponent implements OnInit {
+  
+  view:boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.view = true;
   }
 
 }

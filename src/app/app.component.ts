@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-guide';
+
+  sharks: string[] = ["Great White", "Great hammerhead", "Angular roughshark"];
 }

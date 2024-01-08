@@ -5,3 +5,15 @@ Default:
 
 Question:
 <ng-content select="[question]"></ng-content>
+
+<ng-template [ngIf]="view">
+    <b>ng-template </b>renderiza o componente com uma condição
+</ng-template>
+<br>
+<br>
+<ng-container *ngIf="!view; else templateA">
+    <b>ng-container yes</b>
+</ng-container>
+<ng-template #templateA>
+    <b>ng-container no</b>
+</ng-template>
