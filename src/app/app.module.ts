@@ -8,6 +8,9 @@ import { ConditionalContentComponent } from './content-projection/conditional-co
 import { TemplateOutletComponent } from './content-projection/templateOutlet/template-outlet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicModule } from './dynamic-components/dynamic.module';
+import { FormControlComponent } from './forms/form-control/form-control.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +18,14 @@ import { DynamicModule } from './dynamic-components/dynamic.module';
     SingleContentComponent,
     MultContentComponent,
     ConditionalContentComponent,
-    TemplateOutletComponent
+    TemplateOutletComponent,
+    FormControlComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     BrowserAnimationsModule,
     [DynamicModule]
   ],
