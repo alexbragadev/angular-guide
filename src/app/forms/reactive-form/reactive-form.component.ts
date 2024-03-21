@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -25,6 +25,18 @@ export class ReactiveFormComponent implements OnInit {
       zip: new FormControl(''),
     }),
   });
+  // uso de formBuilder
+  profileFormBuilder = this.formBuilder.group({
+    firstName: ['', Validators.required],
+    lastName: [''],
+    address: this.formBuilder.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: [''],
+    }),
+    aliases: this.formBuilder.array([this.formBuilder.control('')]),
+  });
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -42,6 +54,11 @@ export class ReactiveFormComponent implements OnInit {
     console.warn(this.profileFormListGroup.value);
   }
 
+  onSubmit3() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileFormBuilder.value);
+  }
+
   updateProfile() {
     this.profileFormListGroup.patchValue({
       firstName: 'Angerleide',
@@ -49,6 +66,14 @@ export class ReactiveFormComponent implements OnInit {
         street: '123 Drew Street',
       },
     });
+  }
+
+  get aliases() {
+    return this.profileFormBuilder.get('aliases') as FormArray;
+  }
+
+  addAlias() {
+    this.aliases.push(this.formBuilder.control(''));
   }
 
 }
