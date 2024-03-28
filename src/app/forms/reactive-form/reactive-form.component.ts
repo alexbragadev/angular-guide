@@ -33,7 +33,7 @@ export class ReactiveFormComponent implements OnInit {
       street: [''],
       city: [''],
       state: [''],
-      zip: [''],
+      zip: ['', Validators.maxLength(9)],
     }),
     aliases: this.formBuilder.array([this.formBuilder.control('')]),
   });
@@ -41,6 +41,7 @@ export class ReactiveFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    
   }
 
   onSubmit() {

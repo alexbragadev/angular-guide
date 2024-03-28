@@ -8,9 +8,8 @@ import { ConditionalContentComponent } from './content-projection/conditional-co
 import { TemplateOutletComponent } from './content-projection/templateOutlet/template-outlet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicModule } from './dynamic-components/dynamic.module';
-import { FormControlComponent } from './forms/form-control/form-control.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
+import { FormModule } from './forms/form.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,16 +17,13 @@ import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.compo
     SingleContentComponent,
     MultContentComponent,
     ConditionalContentComponent,
-    TemplateOutletComponent,
-    FormControlComponent,
-    ReactiveFormComponent
+    TemplateOutletComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
+    FormModule,
     BrowserAnimationsModule,
-    [DynamicModule]
+    [DynamicModule, AppRoutingModule]
   ],
   providers: [],
   bootstrap: [AppComponent],
